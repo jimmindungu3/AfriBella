@@ -39,6 +39,16 @@ export function CartProvider({ children }) {
     }, 0);
   };
 
+  const updateQuantity = (productId, newQuantity) => {
+    if (newQuantity < 1) return;
+
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === productId ? { ...item, quantity: newQuantity } : item
+      )
+    );
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -47,6 +57,7 @@ export function CartProvider({ children }) {
         removeFromCart,
         getCartCount,
         getCartTotal,
+        updateQuantity,
       }}
     >
       {children}

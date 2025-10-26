@@ -1,9 +1,9 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
-import { X, Send } from "lucide-react";
+import { X, Send, Plus, Minus } from "lucide-react";
 
 const CartPage = ({ isOpen, onClose }) => {
-  const { cartItems, removeFromCart, getCartTotal } = useCart();
+  const { cartItems, removeFromCart, getCartTotal, updateQuantity } = useCart();
 
   const sendToWhatsApp = () => {
     const phoneNumber = "254717055495";
@@ -51,7 +51,30 @@ const CartPage = ({ isOpen, onClose }) => {
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900">{item.name}</h3>
                     <p className="text-sm text-gray-600">{item.price}</p>
-                    <p className="text-gray-500">Quantity: {item.quantity}</p>
+
+                    <div className="flex items-center gap-2 mt-2">
+                      <button
+                        onClick={() =>
+                          updateQuantity(item.id, item.quantity - 1)
+                        }
+                        disabled={item.quantity <= 1}
+                        className="p-1 text-gray-500 transition-colors border rounded-md hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <Minus size={16} />
+                      </button>
+
+                      <span className="w-8 text-center">{item.quantity}</span>
+
+                      <button
+                        onClick={() =>
+                          updateQuantity(item.id, item.quantity + 1)
+                        }
+                        className="p-1 text-gray-500 transition-colors border rounded-md hover:bg-gray-100"
+                      >
+                        <Plus size={16} />
+                      </button>
+                    </div>
+
                     <button
                       onClick={() => removeFromCart(item.id)}
                       className="mt-2 text-sm text-red-500 hover:text-red-700"
