@@ -3,7 +3,7 @@ import { ShoppingCart } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
 const FeaturedProducts = () => {
-    const { addToCart } = useCart();
+  const { addToCart } = useCart();
   const products = [
     {
       id: 1,
@@ -62,55 +62,55 @@ const FeaturedProducts = () => {
   ];
 
   return (
-    <section className="px-4 py-16 sm:px-6 sm:py-20">
+    <section className="px-4 py-12 sm:px-6 sm:py-16">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-14">
-          <h2 className="mb-2 text-3xl sm:text-4xl md:text-5xl font-extrabold text-pink-600">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="mb-2 text-2xl sm:text-3xl md:text-4xl font-extrabold text-pink-600">
             Featured Collection
           </h2>
-          <p className="text-base sm:text-lg text-gray-700">
+          <p className="text-sm sm:text-base text-gray-700">
             Discover our handpicked jewelry, makeup, and accessories
           </p>
         </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {/* Product Grid - Modified for 2 columns */}
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
           {products.map((product) => (
             <div
               key={product.id}
-              className="overflow-hidden bg-white shadow-md rounded-2xl transition-transform duration-300 hover:shadow-xl hover:-translate-y-2"
+              className="overflow-hidden bg-white shadow-md rounded-xl transition-transform duration-300 hover:shadow-xl hover:-translate-y-1"
             >
-              {/* Product Image */}
+              {/* Product Image - Adjusted height */}
               <div className="relative">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="object-cover w-full h-56 sm:h-64 transition-transform duration-500 hover:scale-105"
+                  className="object-cover w-full h-40 sm:h-52 transition-transform duration-500 hover:scale-105"
                 />
-                <span className="absolute px-3 py-1 text-xs font-medium text-gray-700 bg-green-100 rounded-full top-3 right-3">
+                <span className="absolute px-2 py-0.5 text-[10px] sm:text-xs font-medium text-gray-700 bg-green-100 rounded-full top-2 right-2">
                   {product.category}
                 </span>
               </div>
 
-              {/* Product Details */}
-              <div className="p-4 sm:p-6">
-                <h3 className="mb-2 text-lg sm:text-xl font-semibold text-gray-900">
+              {/* Product Details - Adjusted padding and text sizes */}
+              <div className="p-3 sm:p-4">
+                <h3 className="mb-1 text-sm sm:text-lg font-semibold text-gray-900 line-clamp-1">
                   {product.name}
                 </h3>
-                <p className="mb-4 text-gray-600 text-sm">
+                <p className="mb-2 text-gray-600 text-xs sm:text-sm line-clamp-2">
                   {product.description}
                 </p>
 
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <span className="text-xl font-bold text-pink-600">
+                <div className="flex flex-col gap-2">
+                  <span className="text-base sm:text-lg font-bold text-pink-600">
                     {product.price}
                   </span>
                   <button
                     onClick={() => addToCart(product)}
-                    className="flex items-center justify-center gap-2 px-4 py-2.5 font-medium text-white bg-pink-600 rounded-lg transition-all duration-300 hover:bg-pink-700 text-sm w-full sm:w-auto"
+                    className="flex items-center justify-center gap-1 px-3 py-1.5 font-medium text-white bg-pink-600 rounded-lg transition-all duration-300 hover:bg-pink-700 text-xs sm:text-sm w-full"
                   >
-                    <ShoppingCart size={18} />
+                    <ShoppingCart size={14} className="sm:w-4 sm:h-4" />
                     <span>Add to Cart</span>
                   </button>
                 </div>
