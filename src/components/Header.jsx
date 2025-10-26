@@ -6,7 +6,7 @@ const Header = ({ onCartClick }) => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-primary-light/30 backdrop-blur-md font-body">
-      <div className="flex items-center justify-between px-6 py-4 mx-auto max-w-7xl">
+      <div className="flex items-center justify-between px-6 py-4 mx-auto max-w-6xl">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-primary"></div>

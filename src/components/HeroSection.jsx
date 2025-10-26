@@ -13,14 +13,14 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="relative flex flex-col items-center justify-between gap-10 mx-auto max-w-7xl md:flex-row">
+      <div className="relative flex flex-col items-center justify-between max-w-6xl gap-10 mx-auto md:flex-row">
         {/* Left Text */}
         <div className="text-center md:text-left md:w-1/2">
-          <h1 className="mb-6 text-4xl md:text-6xl font-extrabold leading-tight text-gray-900 italic tracking-wide">
-            Elevate Your{" "}
-            <span className="text-pink-600">&nbsp;Style & Beauty</span>
+          <h1 className="mb-6 text-4xl italic font-extrabold leading-tight tracking-wide text-gray-900 md:text-6xl">
+            Elevate Your <span className="text-pink-600">Style</span> &
+            <span className="text-pink-600"> Beauty</span>
           </h1>
-          <p className="mb-8 text-lg md:text-xl text-gray-700">
+          <p className="mb-8 text-lg text-gray-700 md:text-xl">
             Exquisite jewelry, makeup essentials, and accessories to complete
             your look. Handpicked pieces for the modern woman.
           </p>
@@ -40,7 +40,7 @@ const HeroSection = () => {
             <img
               src={heroImage}
               alt="Beauty products"
-              className="object-cover w-full h-full rounded-2xl shadow-xl transition-transform duration-500 hover:scale-105"
+              className="object-cover w-full h-full transition-transform duration-500 shadow-xl rounded-2xl hover:scale-105 border-8 border-neutral"
             />
           </div>
         </div>
